@@ -1,0 +1,688 @@
+% ============================================================
+%  SCS 3312 – Research Methods  |  D0: Topic Proposal & Research Plan
+%  Group Submission
+% ============================================================
+\documentclass[12pt, a4paper]{report}
+
+% ── Packages ────────────────────────────────────────────────
+\usepackage[left=1.5in, right=1in, top=1.5in, bottom=1in]{geometry}
+\usepackage{fontenc}
+\usepackage{inputenc}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{makeidx}
+\usepackage{natbib}   % Harvard-style citations
+
+\makeindex
+
+% ── Hyperref / Bookmarks ────────────────────────────────────
+\hypersetup{
+    colorlinks = true,
+    linkcolor  = black,
+    citecolor  = black,
+    urlcolor   = blue,
+    bookmarks  = true,
+    bookmarksopen = true,
+    pdftitle   = {Passenger Waiting Behaviour and Boarding Decisions at Selected Urban Bus Stops},
+    pdfauthor  = {Group – SCS 3312},
+}
+
+% ── Page numbering style helper ─────────────────────────────
+% Roman numerals for front matter, Arabic from Chapter 1 onwards
+% (handled via \frontmatter / \mainmatter in the document body)
+
+% ── Header / Footer ─────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}          % page number centred in footer
+
+% Title page has no page number
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \cfoot{}
+}
+
+% ── Chapter / Section title formatting ──────────────────────
+\titleformat{\chapter}[block]
+  {\normalfont\Large\bfseries}{\chaptername\ \thechapter}{1em}{}
+\titlespacing*{\chapter}{0pt}{30pt}{20pt}
+
+% ── Line spacing ─────────────────────────────────────────────
+\onehalfspacing
+
+% ============================================================
+\begin{document}
+
+% ────────────────────────────────────────────────────────────
+%  TITLE PAGE  (no page number)
+% ────────────────────────────────────────────────────────────
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    {\Large\bfseries University of Colombo School of Computing\\[0.4em]
+    SCS 3312 – Research Methods}
+
+    \vspace{2cm}
+
+    \rule{\linewidth}{0.5pt}\\[0.6em]
+    {\LARGE\bfseries Passenger Waiting Behaviour and\\[0.3em]
+    Boarding Decisions at Selected\\[0.3em]
+    Urban Bus Stops}\\[0.4em]
+    \rule{\linewidth}{0.5pt}
+
+    \vspace{1.5cm}
+
+    {\large\textbf{D0: Topic Proposal \& Research Plan}}\\[0.3em]
+    {\large Group Submission}
+
+    \vspace{2cm}
+
+    \begin{tabular}{ll}
+        \textbf{Module}     & SCS 3312 – Research Methods \\[0.3em]
+        \textbf{Deadline}   & 20 May 2026, 12:00 Hrs \\[0.3em]
+        \textbf{Submission} & Group \\
+    \end{tabular}
+
+    \vfill
+
+    {\large University of Colombo School of Computing\\
+    University of Colombo, Sri Lanka}\\[0.5em]
+    {\large May 2026}
+\end{titlepage}
+
+% ────────────────────────────────────────────────────────────
+%  FRONT MATTER – Roman numerals, no "Chapter" prefix
+% ────────────────────────────────────────────────────────────
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+% No section numbering before Chapter 1
+\setcounter{secnumdepth}{-1}
+
+% ── Acknowledgement ─────────────────────────────────────────
+\chapter*{Acknowledgement}
+\addcontentsline{toc}{chapter}{Acknowledgement}
+
+We would like to express our sincere gratitude to the faculty of the University of Colombo
+School of Computing for providing this opportunity to engage with real-world research
+environments. We also thank the passengers and commuters at the selected bus stops whose
+cooperation made field observations possible, as well as the University of Colombo
+administration for facilitating access to the study sites.
+
+% ── Abstract ────────────────────────────────────────────────
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+
+This proposal presents a research plan to investigate passenger waiting behaviour and
+boarding decisions at three selected urban bus stops in Colombo, Sri Lanka. The study is
+motivated by the observable yet under-studied phenomena of passengers extending their
+waiting duration, rejecting overcrowded buses, and exhibiting irregular boarding patterns
+within public transport environments. Using a mixed-method approach that combines
+qualitative techniques—direct observation and informal interviews—with quantitative
+methods—passenger counting, waiting-time measurement, and structured surveys—the
+research aims to identify behavioural patterns and the factors that influence them. Three
+field sites, namely Reid Avenue, Town Hall, and Fort Main bus stops, have been selected
+because they represent varied levels of passenger congestion and operational conditions.
+Data will be collected during both peak and off-peak hours to capture the full range of
+commuter behaviour. The findings are expected to contribute practical insights for improving
+passenger management and public transport planning in urban Sri Lanka.
+
+% ── Table of Contents ───────────────────────────────────────
+\tableofcontents
+
+% ── List of Figures ─────────────────────────────────────────
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+% ── List of Tables ──────────────────────────────────────────
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+% ── List of Acronyms ────────────────────────────────────────
+\chapter*{List of Acronyms}
+\addcontentsline{toc}{chapter}{List of Acronyms}
+
+\begin{tabular}{ll}
+    \textbf{UCSC} & University of Colombo School of Computing \\
+    \textbf{LMS}  & Learning Management System \\
+    \textbf{SCS}  & School of Computing Studies \\
+\end{tabular}
+
+% ────────────────────────────────────────────────────────────
+%  MAIN MATTER – Arabic numerals, section numbering ON
+% ────────────────────────────────────────────────────────────
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\setcounter{secnumdepth}{3}   % number sections, subsections, subsubsections
+
+% ============================================================
+%  CHAPTER 1 – INTRODUCTION
+% ============================================================
+\chapter{Introduction}
+
+This chapter provides an overview of the research study and introduces the main problem
+being investigated. It explains the background and importance of studying passenger waiting
+behaviour at urban bus stops, presents the research objectives and questions, and defines
+the scope of the study. Furthermore, this chapter establishes the conceptual foundation for
+understanding how passenger behaviour is shaped by factors such as waiting time, crowd
+conditions, and bus availability in real-world transport environments.
+
+\section{Background of the Study}
+
+Public transportation is one of the most essential services used by people in urban areas.
+In Sri Lanka, buses serve as the primary mode of daily travel for students, office workers,
+and the general public. Consequently, bus stops have become crowded public spaces where
+passengers wait, interact, and make consequential decisions relating to transportation.
+
+Passenger behaviour at bus stops varies considerably depending on conditions such as
+waiting time, crowd level, bus availability, and urgency of travel. Some passengers wait
+for a specific bus route for extended periods, while others board the first available bus. In
+crowded situations, passengers may avoid overcrowded buses, move frequently within the
+waiting area, or attempt aggressive boarding when buses arrive.
+
+These behaviours have direct implications for passenger safety, comfort, queue discipline,
+and the overall efficiency of public transportation services. Studying passenger waiting
+behaviour therefore offers a window into how people make real-world transport decisions
+under varying environmental pressures.
+
+This study focuses on observing and analysing passenger waiting behaviour and boarding
+decisions at three selected urban bus stops in Colombo during both peak and off-peak
+hours.
+
+\section{Research Problem}
+
+Passenger behaviour at bus stops is frequently influenced by overcrowding, irregular bus
+arrivals, prolonged waiting times, and individual travel preferences. Although buses may
+arrive with reasonable frequency, many passengers continue to wait for specific services
+rather than boarding immediately. Some passengers reject visibly overcrowded buses, while
+others display visible impatience during extended waits.
+
+At congested bus stops, passengers may also demonstrate behaviours such as queue
+changing, standing at the roadside, relocating between waiting areas, or rushing to board
+arriving buses. These behaviours can create safety hazards, increase congestion, and
+reduce boarding efficiency.
+
+Despite the prevalence of these phenomena, there is limited scholarly understanding of the
+factors that govern passenger waiting decisions and behavioural responses in urban bus
+stop environments. This research therefore aims to investigate why passengers extend their
+waiting periods and how different environmental and social factors affect their behaviour at
+bus stops.
+
+\section{Research Topic}
+
+\begin{center}
+    \textit{"Passenger Waiting Behaviour and Boarding Decisions\\
+    at Selected Urban Bus Stops"}
+\end{center}
+
+This research examines how passengers behave while waiting for buses, and how factors
+such as crowd density, waiting duration, and bus conditions influence their boarding
+decisions.
+
+\section{Relevance of the Study}
+
+Public buses constitute one of the primary transportation modes used in Colombo. Passenger
+behaviour at bus stops directly affects crowd management, transport efficiency, and passenger
+safety. Understanding waiting behaviour can help to:
+
+\begin{itemize}[noitemsep]
+    \item Identify common behavioural patterns at bus stops;
+    \item Understand the factors that cause prolonged waiting times;
+    \item Improve passenger management strategies;
+    \item Support better public transport planning; and
+    \item Reduce overcrowding and unsafe boarding behaviour.
+\end{itemize}
+
+In addition, this research is relevant to the field of research methods because it studies
+observable, real-world human behaviour using both qualitative and quantitative approaches,
+making it a suitable vehicle for developing methodological competence.
+
+\section{Research Objectives}
+
+The primary objective of this study is to investigate passenger waiting behaviour and boarding
+decisions at selected bus stops in Colombo. The specific objectives are:
+
+\begin{enumerate}[noitemsep]
+    \item To identify common passenger waiting behaviours at bus stops;
+    \item To examine the factors influencing passenger waiting time;
+    \item To analyse how crowd density affects boarding decisions;
+    \item To compare passenger behaviour between different bus stops; and
+    \item To observe behavioural differences during peak and off-peak hours.
+\end{enumerate}
+
+\section{Preliminary Research Questions}
+
+This study attempts to address the following research questions:
+
+\begin{enumerate}[noitemsep]
+    \item Why do some passengers wait longer than others at bus stops?
+    \item How does crowd density influence passenger boarding decisions?
+    \item Why do some passengers reject overcrowded buses?
+    \item How do passengers behave during extended waiting periods?
+    \item Are there observable differences in passenger behaviour between different bus stops?
+    \item How do peak-hour conditions affect passenger waiting behaviour?
+\end{enumerate}
+
+\section{Scope of the Study}
+
+This research is limited to observing passenger waiting behaviour and boarding decisions at
+three selected urban bus stops in Colombo. The study focuses on:
+
+\begin{itemize}[noitemsep]
+    \item Passenger waiting time;
+    \item Boarding and rejection behaviour;
+    \item Crowd conditions within waiting areas;
+    \item Passenger movement within bus stops; and
+    \item Peak-hour and off-peak-hour behaviour.
+\end{itemize}
+
+Data will be collected through direct observation, informal interviews, surveys, passenger
+counting, and waiting-time measurements. The study does not encompass technical bus
+operations, government transport policies, or driver behaviour. The primary focus remains
+on passenger behaviour and decision-making within bus stop environments.
+
+% ============================================================
+%  CHAPTER 2 – FIELD STUDY DESCRIPTION
+% ============================================================
+\chapter{Field Study Description}
+
+This chapter describes the locations selected for the research study and explains the
+environmental conditions observed at each bus stop. It discusses the differences between
+peak-hour and off-peak-hour conditions, and identifies common passenger activities and
+behavioural patterns noted during preliminary field visits. The purpose of this chapter is to
+provide a clear understanding of the real-world setting in which the research will be
+conducted.
+
+\section{Selected Field Sites}
+
+The research will be conducted at three urban bus stops in Colombo. These sites were
+selected because they experience different passenger volumes, bus frequencies, and crowd
+conditions throughout the day, thereby providing suitable environments for observing a
+range of passenger behaviours related to waiting, boarding, and decision-making.
+
+The selected field sites are:
+
+\begin{itemize}[noitemsep]
+    \item Reid Avenue Bus Stop
+    \item Town Hall Bus Stop
+    \item Fort Main Bus Stop
+\end{itemize}
+
+These locations are commonly used by students, office workers, and the general public. The
+bus stops also represent different levels of passenger congestion, allowing meaningful
+comparisons between highly crowded and moderately crowded environments.
+
+\section{Description of the Selected Bus Stops}
+
+Each selected bus stop has distinct physical and environmental characteristics that may
+influence passenger behaviour.
+
+\subsection{Reid Avenue Bus Stop}
+
+This bus stop is primarily used by university students and nearby office workers. Passenger
+traffic increases significantly during morning and evening hours. The waiting space is
+limited, which sometimes causes crowding near the roadside and contributes to disorganised
+boarding behaviour.
+
+\subsection{Town Hall Bus Stop}
+
+Town Hall Bus Stop is situated in a busy commercial and administrative area. A large number
+of passengers use this location throughout the day. Due to the high number of bus routes
+served, passengers frequently move within the waiting area and often change their boarding
+decisions in response to crowd conditions.
+
+\subsection{Fort Main Bus Stop}
+
+Fort Main Bus Stop experiences very high passenger flow as it functions as a major transport
+hub in Colombo. Passengers at this location regularly encounter long waiting times,
+overcrowding, and competition for boarding space during peak hours.
+
+These differences between bus stops provide opportunities to compare passenger behaviour
+under contrasting environmental and operational conditions.
+
+\section{Peak and Off-Peak Conditions}
+
+Passenger behaviour at bus stops changes substantially depending on the time of day and
+prevailing crowd conditions. The study will therefore observe both peak-hour and
+off-peak-hour situations.
+
+\subsection{Peak Hours}
+
+Peak hours typically occur during morning travel periods and evening return hours. During
+these periods:
+
+\begin{itemize}[noitemsep]
+    \item Passenger density increases markedly;
+    \item Waiting areas become congested;
+    \item Boarding competition intensifies; and
+    \item Passengers may become impatient as a result of delays or overcrowding.
+\end{itemize}
+
+\subsection{Off-Peak Hours}
+
+Off-peak periods generally exhibit lower passenger volumes, shorter waiting times, reduced
+crowd pressure, and more organised boarding behaviour. Observing both conditions will help
+identify how environmental factors influence waiting behaviour and decision-making.
+
+\section{Observed Passenger Activities}
+
+During preliminary observations, several common passenger activities and behavioural
+patterns were identified at the selected bus stops. These include:
+
+\begin{itemize}[noitemsep]
+    \item Waiting for specific bus routes;
+    \item Rejecting overcrowded buses upon arrival;
+    \item Queue changing and position shifting;
+    \item Moving closer to the roadside when buses approach;
+    \item Using mobile phones while waiting;
+    \item Interacting with fellow passengers;
+    \item Attempting aggressive boarding during congested situations; and
+    \item Frequently checking for approaching buses.
+\end{itemize}
+
+Differences were also observed between passengers who were prepared to wait for extended
+periods and those who preferred immediate boarding regardless of conditions. These
+behaviours indicate that passenger decisions are shaped by waiting time, crowd conditions,
+comfort, and urgency of travel, and they establish a firm foundation for the qualitative and
+quantitative data collection planned for subsequent phases of the study.
+
+% ============================================================
+%  CHAPTER 3 – RESEARCH METHODOLOGY
+% ============================================================
+\chapter{Research Methodology}
+
+This chapter explains the research methods and procedures that will be used to collect and
+analyse data. It describes both qualitative and quantitative approaches to investigating
+passenger waiting behaviour and boarding decisions at selected bus stops, and outlines
+methods of observation, interviews, surveys, data recording, and the responsibilities of
+each group member.
+
+\section{Research Approach}
+
+This research adopts a mixed-method approach, combining qualitative and quantitative data
+collection. The mixed-method design was selected because passenger behaviour at bus
+stops involves both observable behavioural patterns and measurable numerical data
+\citep{creswell2014}.
+
+The qualitative strand will illuminate passenger experiences, behaviours, and
+decision-making processes through direct observation and informal interviews. The
+quantitative strand will produce measurable data on waiting times, passenger counts, and
+boarding frequencies. By integrating both strands, the study aims to achieve a more
+comprehensive understanding of passenger waiting behaviour under varying transport
+conditions.
+
+\section{Qualitative Data Collection Methods}
+
+The qualitative phase focuses on understanding passenger behaviour, attitudes, and
+decision-making patterns. Data will be collected through observation, informal interviews,
+and field notes.
+
+\subsection{Observation}
+
+Direct observation will be used to study passenger activities and behavioural patterns at the
+selected bus stops during both peak and off-peak hours. Observations will focus on:
+
+\begin{itemize}[noitemsep]
+    \item Passenger movement within the bus stop;
+    \item Queue behaviour and queue discipline;
+    \item Boarding behaviour;
+    \item Bus rejection behaviour;
+    \item Reactions to delays and overcrowding; and
+    \item Passenger interactions with others.
+\end{itemize}
+
+Observation allows researchers to study natural passenger behaviour in real-world settings
+without interfering with normal activities \citep{bryman2016}.
+
+\subsection{Informal Interviews}
+
+Short informal interviews will be conducted with selected passengers. These interviews will
+help to clarify the reasons behind observed decisions and behaviours. Topics will include:
+
+\begin{itemize}[noitemsep]
+    \item Reasons for waiting for a specific bus;
+    \item Opinions regarding overcrowded buses;
+    \item Factors affecting boarding decisions; and
+    \item Passenger experiences during long waiting periods.
+\end{itemize}
+
+Interviews will be brief, respectful, and conducted without disturbing passengers.
+
+\subsection{Field Notes}
+
+Field notes will record important observations and environmental conditions during data
+collection, including crowd conditions, weather, unusual passenger behaviours, traffic
+conditions, and any special incidents observed. Field notes will support the interpretation of
+qualitative findings in later analytical stages.
+
+\section{Quantitative Data Collection Methods}
+
+The quantitative phase focuses on collecting measurable numerical data related to
+passenger waiting behaviour.
+
+\subsection{Passenger Counting}
+
+Passenger counting will measure the number of passengers present at each bus stop across
+different time periods, including the number arriving, boarding, and rejecting buses, as well
+as passenger density during peak and off-peak hours. This data will enable identification of
+crowd patterns and passenger flow.
+
+\subsection{Waiting Time Measurement}
+
+Waiting-time measurements will determine how long passengers remain at bus stops before
+boarding. Records will capture average and maximum waiting times, differences between
+peak and off-peak periods, and waiting durations for different bus routes.
+
+\subsection{Survey Data Collection}
+
+Structured questionnaires will be distributed to selected passengers. Survey questions will
+address average waiting time, preferred bus conditions, willingness to board crowded buses,
+passenger satisfaction, and reasons for rejecting buses. Responses will be summarised
+using percentages, charts, and basic statistical comparisons.
+
+\section{Variables to be Measured}
+
+The study will measure the following variables:
+
+\begin{itemize}[noitemsep]
+    \item Passenger waiting time;
+    \item Passenger count;
+    \item Crowd density;
+    \item Bus arrival intervals;
+    \item Number of rejected buses;
+    \item Boarding frequency; and
+    \item Peak-hour and off-peak-hour passenger flow.
+\end{itemize}
+
+\section{Data Recording Procedure}
+
+Data collection will be conducted systematically at selected bus stops at different times of
+day through the following procedure:
+
+\begin{enumerate}[noitemsep]
+    \item Visiting selected bus stops during peak and off-peak hours;
+    \item Observing passenger behaviour directly;
+    \item Recording passenger counts and waiting times;
+    \item Conducting short interviews and distributing surveys;
+    \item Maintaining field notes for each observation session; and
+    \item Organising collected data into tables and records for analysis.
+\end{enumerate}
+
+Multiple observation visits will be conducted at each location to improve accuracy and
+reliability.
+
+\section{Group Member Responsibilities}
+
+Research tasks will be distributed equitably among the three group members to ensure
+efficient data collection and coordination.
+
+\begin{description}
+    \item[Member 1 – Observation and Passenger Counting]
+        Observe passenger behaviour; count passengers during selected time periods;
+        measure crowd density; and record boarding and rejection behaviour.
+
+    \item[Member 2 – Interviews and Survey Collection]
+        Conduct informal interviews; distribute and collect survey questionnaires;
+        record passenger opinions and responses; and organise qualitative data.
+
+    \item[Member 3 – Waiting Time and Field Documentation]
+        Measure passenger waiting times; record bus arrival intervals; maintain field notes;
+        and document environmental conditions and special observations.
+\end{description}
+
+All group members will participate in field visits and collaborate during data analysis and
+report preparation.
+
+% ============================================================
+%  CHAPTER 4 – CRITICAL ANALYSIS
+% ============================================================
+\chapter{Critical Analysis}
+
+This chapter critically discusses the importance of studying passenger waiting behaviour and
+evaluates the practical challenges and limitations associated with the research. It also
+highlights the ethical considerations that must be followed during data collection.
+
+\section{Importance of Studying Passenger Behaviour}
+
+Public transportation is central to urban daily life, and passenger behaviour at bus stops
+directly affects crowd management, boarding efficiency, passenger safety, and the overall
+quality of the public transport experience. Studying waiting behaviour can reveal how people
+respond to overcrowding, long waiting times, and irregular bus arrivals, thereby identifying
+systemic transport problems.
+
+This study is important because it:
+
+\begin{itemize}[noitemsep]
+    \item Elucidates real-world commuter decision-making processes;
+    \item Identifies behavioural patterns under crowded conditions;
+    \item Provides insights into passenger comfort and safety concerns;
+    \item Contributes to improving public transportation experiences; and
+    \item Supports the development of more efficient passenger management strategies.
+\end{itemize}
+
+From an academic perspective, the research is valuable because it applies both qualitative
+and quantitative methods to study real-world human behaviour in public environments,
+aligning with contemporary mixed-method research traditions \citep{tashakkori2010}.
+
+\section{Expected Challenges During Data Collection}
+
+Several challenges are anticipated. Overcrowding during peak hours may make it difficult to
+observe behaviours accurately, count passengers, and conduct interviews without
+disruption. The unpredictable nature of bus transportation—including delays, traffic
+congestion, and sudden changes in passenger flow—may affect the consistency of
+observations and waiting-time measurements.
+
+Passengers may also be unwilling to participate in interviews or surveys due to time
+constraints, privacy concerns, or lack of interest, and some may provide incomplete or
+inaccurate responses. Environmental conditions such as rain, noise, heat, and traffic
+congestion may hinder field observations and data recording. Managing multiple concurrent
+activities—observation, counting, and interviews—will require careful coordination among
+group members.
+
+\section{Possible Limitations of the Study}
+
+The research is limited to three selected bus stops in Colombo; the observed behavioural
+patterns may therefore not fully represent passenger behaviour across all bus stops or
+transport environments in Sri Lanka. The observation period is restricted to selected days
+and times, meaning that behaviour during weekends, holidays, special events, or atypical
+transport conditions falls outside the study scope.
+
+Additionally, certain passenger decisions and emotional responses cannot be directly
+measured through observation alone; some behaviours may be influenced by personal
+factors that remain invisible during fieldwork. The accuracy of waiting-time measurements
+and passenger counts may also be affected by heavy crowd movement and rapid changes in
+passenger flow during peak hours. Despite these limitations, the study is expected to yield
+meaningful insights into passenger waiting behaviour and boarding decisions in urban
+transport environments.
+
+\section{Ethical Considerations}
+
+The research will adhere to ethical standards throughout all stages of data collection.
+Passenger privacy and confidentiality will be respected; no personal information such as
+names, contact details, or identification will be collected. Informal interviews and surveys
+will be conducted only with the informed consent of participants, who retain the right to
+withdraw at any time.
+
+Researchers will avoid disrupting normal passenger activities during observations, which
+will focus exclusively on general public behaviour in open, publicly accessible spaces. All
+collected data will be used solely for the academic purposes of this study, and findings will
+be reported honestly and accurately without manipulation or misrepresentation.
+
+% ============================================================
+%  CHAPTER 5 – CONCLUSION AND FUTURE WORK
+% ============================================================
+\chapter{Conclusion and Future Work}
+
+This chapter summarises the research proposal, highlights the expected contributions of the
+study, and identifies areas for future investigation related to passenger behaviour and public
+transportation systems.
+
+\section{Summary of the Proposed Research}
+
+This proposal presents a plan to investigate passenger waiting behaviour and boarding
+decisions at three urban bus stops in Colombo—Reid Avenue, Town Hall, and Fort Main. The
+study will employ a mixed-method design involving direct observation, informal interviews,
+surveys, passenger counting, and waiting-time measurement during both peak and off-peak
+hours.
+
+The research will specifically examine:
+
+\begin{itemize}[noitemsep]
+    \item Passenger waiting behaviour and patterns;
+    \item Boarding and rejection decisions;
+    \item Crowd-related behavioural dynamics;
+    \item Differences between bus stop environments; and
+    \item The influence of waiting conditions on passenger actions.
+\end{itemize}
+
+By combining behavioural observations with quantitative data, the research aims to provide
+a nuanced understanding of how passengers respond to varying transport conditions in urban
+bus stop environments.
+
+\section{Expected Outcomes}
+
+The study is expected to:
+
+\begin{itemize}[noitemsep]
+    \item Identify common passenger waiting behaviours;
+    \item Explain factors that cause extended waiting times;
+    \item Analyse how crowd density shapes passenger decisions;
+    \item Compare passenger behaviour across different bus stops; and
+    \item Determine passenger reactions to overcrowded buses and service delays.
+\end{itemize}
+
+The findings may also explain how passengers balance comfort, urgency, safety, and
+convenience when making transport decisions. Practically, the research may support better
+passenger management strategies, improved queue organisation at bus stops, deeper
+understanding of commuter experiences in crowded environments, and future transportation
+planning.
+
+\section{Future Improvements and Extensions}
+
+This study can serve as a foundation for several extensions. Future research could:
+
+\begin{itemize}[noitemsep]
+    \item Include a greater number of bus stops from different regions of Sri Lanka;
+    \item Compare passenger behaviour in rural and urban transport environments;
+    \item Investigate seasonal or weather-related behavioural changes;
+    \item Analyse the impact of digital transport information systems on passenger decisions; and
+    \item Examine behavioural differences among distinct demographic groups.
+\end{itemize}
+
+Future work could also apply advanced statistical methods, larger survey samples, or
+extended observation periods to enhance accuracy and reliability. The scope may be
+broadened to encompass related phenomena such as queue discipline, commuter stress,
+route selection, and passenger safety behaviour in public transportation systems.
+
+\end{document}
