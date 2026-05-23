@@ -1,0 +1,281 @@
+% ============================================================
+%  D1: Fieldwork Insights Report
+% ============================================================
+
+\documentclass[12pt,a4paper]{report}
+
+% ============================================================
+%  PACKAGES
+% ============================================================
+
+\usepackage[left=1.5in,right=1in,top=1.5in,bottom=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{tocloft}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{parskip}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{makeidx}
+\usepackage{natbib}
+
+\makeindex
+
+% ============================================================
+%  HYPERREF SETTINGS
+% ============================================================
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue,
+    bookmarks=true,
+    bookmarksopen=true,
+    pdftitle={Passenger Waiting Behaviour at Thummulla Bus Stop},
+    pdfauthor={SCS3312 Group}
+}
+
+% ============================================================
+%  HEADER & FOOTER
+% ============================================================
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{\thepage}
+
+% ============================================================
+%  CHAPTER STYLE
+% ============================================================
+
+\titleformat{\chapter}[block]
+{\normalfont\Large\bfseries}
+{\chaptername\ \thechapter}{1em}{}
+
+\titlespacing*{\chapter}{0pt}{30pt}{20pt}
+
+% ============================================================
+%  LINE SPACING
+% ============================================================
+
+\onehalfspacing
+
+% ============================================================
+%  DOCUMENT START
+% ============================================================
+
+\begin{document}
+
+% ============================================================
+%  TITLE PAGE
+% ============================================================
+
+\begin{titlepage}
+    \thispagestyle{empty}
+
+    \begin{center}
+
+        \vspace*{0.8cm}
+
+        {\Large\bfseries UNIVERSITY OF COLOMBO SCHOOL OF COMPUTING\par}
+
+        \vspace{0.2cm}
+
+        {\large SCS 3312 -- Research Methods\par}
+
+        \vspace{1.4cm}
+
+        \rule{0.78\textwidth}{0.5pt}\par
+
+        \vspace{0.4cm}
+
+        {\LARGE\bfseries Study of Passenger Waiting Behaviour\par}
+
+        \vspace{0.2cm}
+
+        {\Large at Thummulla Bus Stop\par}
+
+        \vspace{0.4cm}
+
+        \rule{0.78\textwidth}{0.5pt}\par
+
+        \vspace{1cm}
+
+        {\large\bfseries Fieldwork Insights Report\par}
+
+        \vspace{0.2cm}
+
+        {\large Group Number: 02\par}
+
+        \vfill
+
+        {\fontsize{18pt}{22pt}\selectfont\bfseries R. K. Kalana Jinendra\par}
+
+        \vspace{0.2cm}
+
+        {\large Index Number: 23000821\par}
+
+        {\large kalanajinendra@gmail.com\par}
+
+        \vspace{1cm}
+
+    \end{center}
+
+\end{titlepage}
+
+% ============================================================
+%  FRONT MATTER
+% ============================================================
+
+\pagenumbering{roman}
+\setcounter{secnumdepth}{-1}
+
+% ============================================================
+%  ABSTRACT
+% ============================================================
+
+\chapter*{Abstract}
+
+% ============================================================
+%  TABLE OF CONTENTS
+% ============================================================
+
+\tableofcontents
+\clearpage
+
+% ============================================================
+%  MAIN MATTER
+% ============================================================
+
+\pagenumbering{arabic}
+\setcounter{secnumdepth}{3}
+
+% ============================================================
+%  CHAPTER 1 – INTRODUCTION
+% ============================================================
+
+\chapter{Introduction}
+
+\section{Background}
+
+\section{Purpose of the Fieldwork}
+
+\section{Scope of the Report}
+
+% ============================================================
+%  CHAPTER 2 – FIELDWORK CONTEXT
+% ============================================================
+
+\chapter{Fieldwork Context}
+
+\section{Description of the Field Site}
+
+\section{Observation Sessions}
+
+\section{Role During Fieldwork}
+
+% ============================================================
+%  CHAPTER 3 – STRUCTURED OBSERVATIONS
+% ============================================================
+
+\chapter{Structured Observations}
+
+\section{Queue Behaviour}
+
+\section{Passenger Reactions to Delays}
+
+\section{Boarding Behaviour}
+
+\section{Passenger Movement Patterns}
+
+\section{Social Interaction Behaviour}
+
+% ============================================================
+%  CHAPTER 4 – INTERVIEW SUMMARIES
+% ============================================================
+
+\chapter{Interview Summaries}
+
+\section{Student Passenger Responses}
+
+\section{Office Worker Responses}
+
+\section{Common Themes from Interviews}
+
+% ============================================================
+%  CHAPTER 5 – EMERGING BEHAVIOURAL PATTERNS
+% ============================================================
+
+\chapter{Emerging Behavioural Patterns}
+
+\section{Passenger Adaptation Behaviour}
+
+\section{Queue Instability During Peak Hours}
+
+\section{Overcrowding and Boarding Competition}
+
+\section{Behavioural Differences Between Peak and Off-Peak Hours}
+
+% ============================================================
+%  CHAPTER 6 – REFLECTION AND INITIAL INSIGHTS
+% ============================================================
+
+\chapter{Reflection and Initial Insights}
+
+\section{Fieldwork Experience}
+
+\section{Challenges Faced During Observation}
+
+\section{Initial Understanding of Passenger Behaviour}
+
+\section{Importance of Qualitative Observation}
+
+% ============================================================
+%  CHAPTER 7 – CONCLUSION
+% ============================================================
+
+\chapter{Conclusion}
+
+\section{Summary of Observations}
+
+\section{Summary of Behavioural Insights}
+
+\section{Final Reflection}
+
+% ============================================================
+%  REFERENCES
+% ============================================================
+
+\begin{thebibliography}{99}
+
+\end{thebibliography}
+
+% ============================================================
+%  APPENDICES
+% ============================================================
+
+\appendix
+
+\chapter{Observation Notes}
+
+\chapter{Interview Questions}
+
+\chapter{Fieldwork Records}
+
+% ============================================================
+%  INDEX
+% ============================================================
+
+\printindex
+
+% ============================================================
+%  DOCUMENT END
+% ============================================================
+
+\end{document}

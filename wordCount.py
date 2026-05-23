@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+"""
+Author: R K K Jinendra
+
+Description:
+    This will counts the words in a LaTeX document while ignoring
+    comments, math, tables, figures, citations, and bibliography content.
+"""
+
 import re
 import sys
 from pathlib import Path
